@@ -6,13 +6,23 @@ export default function Home() {
   const [inputText, setInputText] = useState("");
   const [editedText, setEditedText] = useState("");
 
+  function ThaiToEng(text: string): any {
+    const ThToEngMap = {
+      ห: "s",
+      ะ: "t",
+      " ี": "u",
+      ก: "d",
+    };
+    const correctText = text
+      .split("")
+      .map((char) => ThToEngMap[char] || char)
+      .join("");
+    return correctText;
+  }
   function handleInput(event: React.ChangeEvent<HTMLTextAreaElement>): void {
-    const newText = EngToThai(event.target.value);
+    const newText = ThaiToEng(event.target.value);
     setInputText(newText);
     setEditedText(inputText);
-  }
-  function EngToThai(text: string): string {
-    return "fixed" + text;
   }
 
   return (

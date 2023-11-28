@@ -1,28 +1,84 @@
 "use client";
 
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 
 export default function Home() {
-  const [inputText, setInputText] = useState("");
-  const [editedText, setEditedText] = useState("");
+  const [texts, setTexts] = useState<{ input: string; edited: string }>({
+    input: "",
+    edited: ""
+  })
 
-  function ThaiToEng(text: string): any {
-    const ThToEngMap = {
-      ห: "s",
-      ะ: "t",
-      " ี": "u",
-      ก: "d",
-    };
-    const correctText = text
-      .split("")
+  const ThToEngMap: Record<string, string> = {
+    "ๆ": "q",
+    "ไ": "w",
+    "ำ": "e",
+    "พ": "r",
+    "ะ": "t",
+    "ั": "y",
+    "ี": "u",
+    "ร": "i",
+    "น": "o",
+    "ย": "p",
+    "บ": "[",
+    "ล": "]",
+    "ฃ": "a",
+    "ฟ": "s",
+    "ห": "d",
+    "ก": "f",
+    "ด": "g",
+    "เ": "h",
+    "้": "j",
+    "่": "k",
+    "า": "l",
+    "ส": ";",
+    "ว": "'",
+    "ซ": "z",
+    "ต": "x",
+    "อ": "c",
+    "ม": "v",
+    "ศ": "b",
+    "ื": "n",
+    "ง": "m",
+    "๐": "Q",
+    "ฎ": "W",
+    "ฑ": "E",
+    "ธ": "R",
+    "ํ": "T",
+    "โ": "Y",
+    "ฌ": "U",
+    "็": "I",
+    "ณ": "O",
+    "ฯ": "P",
+    "ฆ": "{",
+    "ฏ": "}",
+    "๓": "A",
+    "ษ": "S",
+    "ศ": "D",
+    "ซ": "F",
+    "๐": "G",
+    "ฒ": "H",
+    "ฬ": "J",
+    "ฦ": "K",
+    "ฅ": "L",
+    "๑": ":",
+    "๖": "\"",
+    "๐": "Z",
+    "ฤ": "X",
+    "ฦ": "C",
+    "ง": "V",
+    "จ": "B",
+    "ฎ": "N",
+    "ฑ": "M",
+  };
+
+  const ThaiToEng = (text: string): string => 
+    text.split("")
       .map((char) => ThToEngMap[char] || char)
       .join("");
-    return correctText;
-  }
-  function handleInput(event: React.ChangeEvent<HTMLTextAreaElement>): void {
+  
+  const handleInput = (event: ChangeEvent<HTMLTextAreaElement>): void => {
     const newText = ThaiToEng(event.target.value);
-    setInputText(newText);
-    setEditedText(inputText);
+    setTexts({...texts, input: newText, edited: newText})
   }
 
   return (
@@ -41,7 +97,7 @@ export default function Home() {
           className="w-[700px] my-3"
           style={{ borderRadius: "10px" }}
           rows={4}
-          value={editedText}
+          value={texts.edited}
         />
       </div>
     </main>

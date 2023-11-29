@@ -28,7 +28,7 @@ export default function Home() {
   
   console.log(mode);
   return (
-    <main className="min-h-screen p-24">
+    <main className="min-h-screen w-full pt-24 flex flex-col">
       <h1 className="text-center font-bold text-5xl">Misspelled Texts Fix</h1>
       <div className="flex justify-center items-center mt-5">
       <select name="mode" id="" className="bg-blue-300 p-2 relative" onChange={handleSelect} style={{ borderRadius: "5px" }}>
@@ -39,14 +39,14 @@ export default function Home() {
       <div className="flex flex-col items-center my-5">
         <p className="font-bold mt-7">Put your text in {mode === "ThaiToEnglish" ? "Thai" : "English" }</p>
         <textarea
-          className="w-[700px] my-3 px-3 py-2 "
+          className="w-2/3 my-3 px-3 py-2 "
           style={{ borderRadius: "10px" }}
           rows={4}
           onChange={handleInput}
         />
         <p className="font-bold mt-7">Your text in {mode === "ThaiToEnglish" ? "English" : "Thai" }</p>
         <textarea
-          className="w-[700px] my-3 px-3 py-2"
+          className="w-2/3 my-3 px-3 py-2"
           style={{ borderRadius: "10px" }}
           rows={4}
           value={texts.edited}

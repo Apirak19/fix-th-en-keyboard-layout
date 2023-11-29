@@ -16,7 +16,19 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 textarea{
   resize: none;
+}
+@media (max-width: "320px"){
+  h1{
+    font-size: 20px;
+  }
+}
+@media (max-width: "768px"){
+  h1{
+    font-size: 48px;
+  }
 }

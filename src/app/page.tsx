@@ -41,14 +41,14 @@ export default function Home() {
         <textarea
           className="w-2/3 my-3 px-3 py-2 "
           style={{ borderRadius: "10px" }}
-          rows={4}
+          rows={5}
           onChange={handleInput}
         />
         <p className="font-bold mt-7">Your text in {mode === "ThaiToEnglish" ? "English" : "Thai" }</p>
         <textarea
           className="w-2/3 my-3 px-3 py-2"
           style={{ borderRadius: "10px" }}
-          rows={4}
+          rows={5}
           value={texts.edited}
           readOnly
         />

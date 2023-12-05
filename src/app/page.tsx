@@ -29,7 +29,7 @@ export default function Home() {
   console.log(mode);
   return (
     <main className="min-h-screen w-full pt-24 flex flex-col">
-      <h1 className="text-center font-bold text-5xl">Misspelled Texts Fix</h1>
+      <h1 className="text-center font-bold text-5xl">Keyboard Layout Fix</h1>
       <div className="flex justify-center items-center mt-5">
       <select name="mode" id="" className="bg-blue-300 p-2 relative" onChange={handleSelect} style={{ borderRadius: "5px" }}>
         <option className="p-3" value="ThaiToEnglish" style={{borderRadius: "5px"}}>Thai to English</option>

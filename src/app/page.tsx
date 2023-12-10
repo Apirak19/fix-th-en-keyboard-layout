@@ -52,7 +52,6 @@ export default function Home() {
           value={texts.edited}
           readOnly
         />
-        <p>below textarea</p>
       </div>
     </main>
   );
